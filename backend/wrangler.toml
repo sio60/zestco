@@ -1,0 +1,17 @@
+name = "zestco-backend"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# 필요한 비밀 변수는 대시보드나 wrangler secret로 등록
+# 로컬은 .dev.vars 사용
+
+[vars]
+# 공개 가능(굳이 넣을 필요 없지만 선택)
+SUPABASE_URL = "https://rvloxfnsybgcgooclvmt.supabase.co"
+
+# CRON 예시(필요 시)
+#[triggers]
+#crons = ["0 18 * * *"]  # 매일 18:00 KST
+
+[observability]
+enabled = true
