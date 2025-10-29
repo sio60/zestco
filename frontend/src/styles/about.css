@@ -1,0 +1,127 @@
+/* frontend/src/styles/about.css */
+.about-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 32px);
+  color: #122b00;
+}
+
+.about-block + .about-block {
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.about-h2 {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #000;
+}
+
+.about-h2.muted {
+  color: #474747;
+}
+
+.about-h3 {
+  margin-top: 8px;
+  font-size: clamp(18px, 1.9vw, 24px);
+  color: #467200;
+  font-weight: 700;
+}
+
+.about-list {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+.about-list li {
+  margin: 6px 0;
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: #494949;
+}
+
+.about-divider {
+  margin: 10px 0 18px;
+  display: flex;
+  align-items: center;
+}
+.about-divider > span {
+  width: 50px;
+  border-bottom: 6px solid #80ad3d;
+  border-radius: 2px;
+}
+
+/* Timeline */
+.tl {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  position: relative;
+}
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e6e6e6;
+  transform: translateX(-50%);
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 22px 0;
+  align-items: start;
+}
+
+.tl-item.left .tl-year { grid-column: 1; text-align: right; }
+.tl-item.left .tl-card { grid-column: 2; }
+
+.tl-item.right .tl-year { grid-column: 2; text-align: left; }
+.tl-item.right .tl-card { grid-column: 1; }
+
+.tl-year {
+  font-weight: 900;
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: #000;
+}
+
+.tl-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: clamp(12px, 1.4vw, 18px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.tl-title {
+  margin: 0 0 6px;
+  color: #444;
+  font-weight: 800;
+  font-size: clamp(16px, 1.6vw, 20px);
+}
+.tl-sub {
+  margin: 0 0 10px;
+  color: #666;
+  font-size: clamp(14px, 1.3vw, 16px);
+}
+
+.tl-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Mobile: single column */
+@media (max-width: 820px) {
+  .tl::before { left: 10px; }
+  .tl-item {
+    grid-template-columns: 1fr;
+    margin-left: 20px;
+  }
+  .tl-item .tl-year { grid-column: 1; text-align: left; margin-bottom: 8px; }
+  .tl-item .tl-card { grid-column: 1; }
+}

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const NAV = [
-  { label: "About us & History", href: "#about" },
-  { label: "Brand", href: "#brand" },
-  { label: "Products", href: "#products" },
-  { label: "Where to Buy", href: "#stores" },
-  { label: "SNS", href: "#sns" },
-  { label: "Contact", href: "#contact" },
-  { label: "Notice", href: "#notice" },
+  { label: "About us & History", to: "/about" },
+  { label: "Brand", to: "/brand" },
+  { label: "Products", to: "/products" },
+  { label: "Where to Buy", to: "/stores" },
+  { label: "SNS", to: "/sns" },
+  { label: "Contact", to: "/contact" },
+  { label: "Notice", to: "/notice" },
 ];
 
 export default function Header() {
@@ -26,12 +27,14 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        {/* 그리드 왼쪽 빈 칸 */}
+        {/* 왼쪽 여백 */}
         <div aria-hidden className="spacer" />
-        {/* 중앙 로고 */}
-        <a className="site-logo" href="/">
+
+        {/* 중앙 로고 (홈으로 이동) */}
+        <Link className="site-logo" to="/" onClick={() => setOpen(false)}>
           <img src="/icons/logo.png" alt="Zestco logo" />
-        </a>
+        </Link>
+
         {/* 오른쪽 MENU + 햄버거 */}
         <button
           className="menu-cta"
@@ -45,12 +48,14 @@ export default function Header() {
         </button>
       </div>
 
-      {/* 오버레이 & 오른쪽 드로어 */}
+      {/* 반투명 오버레이 */}
       <div
         className={`backdrop ${open ? "is-open" : ""}`}
         onClick={() => setOpen(false)}
         aria-hidden={!open}
       />
+
+      {/* 오른쪽 슬라이드 메뉴 */}
       <aside
         className={`drawer ${open ? "is-open" : ""}`}
         role="menu"
@@ -73,16 +78,18 @@ export default function Header() {
             </svg>
           </button>
         </div>
+
+        {/* 메뉴 항목 */}
         <ul className="drawer-list">
           {NAV.map((n) => (
             <li key={n.label}>
-              <a
-                href={n.href}
+              <Link
+                to={n.to}
                 className="drawer-link"
                 onClick={() => setOpen(false)}
               >
                 {n.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
