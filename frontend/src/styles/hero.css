@@ -28,10 +28,9 @@
   object-position: center;
 }
 
-/* 잘림 방지: 컨테인(기본) */
 .hero.is-contain .hero__slide img {
-  object-fit: contain;
-  background: #fff; /* 남는 영역 흰색 레터박스 */
+  object-position: top center; /* 위로 붙임 */
+  background: transparent; /* 흰 레터박스 제거 */
 }
 
 /* 필요시 커버로 바꾸고 싶으면 is-cover 클래스를 쓰면 됨 */
